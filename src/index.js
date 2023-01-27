@@ -13,7 +13,7 @@ app.listen(3000, async () => {
 
   // const service = new TweetService();
 
-  // const response = await service.create({ content: "#newTag cool right" });
+  // const response = await service.create({ content: "#FUN test bro" });
 
   // console.log(response);
 });
