@@ -1,5 +1,3 @@
-// like on a like also handled
-
 import mongoose from "mongoose";
 
 const likeSchema = new mongoose.Schema(
@@ -9,7 +7,7 @@ const likeSchema = new mongoose.Schema(
       required: true,
       enum: ["Tweet", "Comment"],
     },
-    likable: {
+    likeable: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
       refPath: "onModel",
@@ -20,7 +18,7 @@ const likeSchema = new mongoose.Schema(
       required: true,
     },
   },
-  { timeStamps: true }
+  { timestamps: true }
 );
 
 const Like = mongoose.model("Like", likeSchema);
