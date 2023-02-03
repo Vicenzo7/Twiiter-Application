@@ -6,10 +6,15 @@ import apiRoutes from "./routes/index.js";
 
 import { TweetRepository, UserRepository } from "./repository/index.js";
 import LikeService from "./services/like-service.js";
+import passport from "passport";
+import { passportAuth } from "./config/jwt-middleware.js";
 
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(passport.initialize());
+passportAuth(passport);
 
 app.use("/api", apiRoutes);
 
