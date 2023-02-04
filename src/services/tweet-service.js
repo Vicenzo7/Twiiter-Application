@@ -8,6 +8,7 @@ class TweetService {
 
   async create(data) {
     const content = data.content;
+    console.log(content);
     let tags = content
       .match(/#[a-zA-Z0-9_]+/g) // this regex extracts hashtags
       .map((tag) => tag.substring(1).toLowerCase()); // removes the # symbol and converts all tags to lowercase
