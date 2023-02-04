@@ -2,6 +2,8 @@ import multer from "multer";
 import multerS3 from "multer-s3";
 import aws from "aws-sdk";
 import dotenv from "dotenv";
+import mime from "mime";
+import path from "path";
 
 dotenv.config();
 
@@ -24,7 +26,9 @@ const upload = multer({
       cb(null, { fieldName: file.fieldname });
     },
     key: function (req, file, cb) {
-      cb(null, Date.now().toString());
+      const extension = mime.getExtension(file.mimetype);
+      const fileName = path.parse(file.originalname).name;
+      cb(null, `${fileName}_${Date.now().toString()}.${extension}`);
     },
   }),
 });
